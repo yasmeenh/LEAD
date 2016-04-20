@@ -1,0 +1,64 @@
+@import '../../shared/mixins',
+        '../../shared/reset',
+        '../../shared/about-light';
+
+/*
+ * Copyright (c) 2012-2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+body {
+  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  color: #25A0A1;
+  background:url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_wall.png);
+ 
+}
+
+.Name
+{
+
+  position: absolute;
+
+}
+h1 {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 100px;
+    line-height: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 0 1px white;
+  }
+
+
+  h2 {
+    position: relative;
+    margin-left: 900px;
+    margin-top: 100px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 0 1px white;
+  }
+
+<style>
+
+div.Searchstyle {
+margin-left: 800px;
+margin-top: 500px;
+}
+#Searchstyle 
+{ 
+  position: absolute;
+margin-top:200px; 
+margin-left:400px; 
+color: #EC5645;
+} 
+
+</style>
