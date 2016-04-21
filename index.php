@@ -68,9 +68,11 @@ session_start();
 	  
 	  
 	  	<?php
-include 'php/post.php';
-$allPosts= new post;
+		//change to use controller class
+include 'php/print_posts_controller.php';
+$allPosts= new print_posts_controller;
 $allPosts->print_posts();
+
 
 ?>	  
 	 
