@@ -7,7 +7,7 @@
 	private $_password = "PASSWORd";
 	private $_database = "DATABASE";
 	/*
-	Get an instance of the Database
+	Get rania an instance of the Database
 	@return Instance
 	*/
 	public static function getInstance() {
