@@ -67,12 +67,67 @@ session_start();
 	  
 	  
 	  
-	  	<?php
-		
+		  	<?php
 include 'php/print_posts_controller.php';
 $allPosts= new print_posts_controller;
-$allPosts->print_posts();
+$result=array();
+$result=$allPosts->print_posts();
 
+$emailArray= array();		
+$nameArray= array();
+$postArray= array();
+if(!$result)
+{
+	die("Error with database");
+}
+else
+{
+	$index = 0;
+	$index1 = sizeof($result);
+while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
+     $postArray[$index] = $row['posts'];
+	 $emailArray[$index] = $row['stnemail'];
+	 $nameArray[$index] = $row['name'];
+	
+	  $index++;
+	 
+}
+$index--;
+ echo ".";
+while($index>=0)
+{
+
+	echo "<div class='borderdiv'>";
+	
+	   echo "<p class='admin'>";
+	  echo htmlspecialchars_decode(stripslashes($nameArray[$index]));
+	  	  	echo "
+<div class='dropdown'>
+  <button class='dropbtn'></button>
+  <div class='dropdown-content'>
+    <a href='#'>Update the post</a>
+    <a href='#'>Delete the post</a>
+  </div>
+</div>";
+	  
+    echo "</p>";
+	  
+	  echo "<p class='post'>";
+	  echo htmlspecialchars_decode(stripslashes($postArray[$index]));
+
+	  
+    echo "</p>";
+	echo "</div>";
+		
+	echo "<br />";
+	echo "<form action='write_post.html' type='post'>";
+	echo "<input type='submit' value='Comment' class='comment'>";
+	echo "<br />";
+	
+	$index--;
+}
+	
+}
 
 ?>	  
 	 
