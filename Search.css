@@ -55,10 +55,16 @@ margin-top: 500px;
 }
 #Searchstyle 
 { 
-  position: absolute;
+position: absolute;
 margin-top:200px; 
-margin-left:400px; 
+margin-left:310px; 
 color: #EC5645;
+margin-bottom: 20px;
+background: #FFFFFF;
+width: 350px;
+border-radius: 15px;
+word-wrap: break-word;
+font-size: 17px;
 } 
 
 </style>
