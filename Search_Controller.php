@@ -47,6 +47,7 @@ class SearchController{
   public function SendUserSearchResult (){
 
     return $this->SearchResult;
+    
   }
 
 }
