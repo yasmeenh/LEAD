@@ -2,18 +2,40 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style1.css">
-<?php require_once('C:\wamp\www\AdminClass.php'); ?>
+<?php include ("AdminClass.php"); ?>
+
 </head>
 <body>
 
-<div id="background"> <img src="images/absolute-img.jpg" alt="" class="abs-img">
+ <div id="background"> <img src="images/absolute-img.jpg" alt="" class="abs-img"></div>
   <div class="page">
     <div class="sidebar">
       <div class="featured">
         <br>
         <div><img src="butterfly.jpg" alt=""></a> </div>
-		<h3></h3>
-	    
+		<h3> 
+		<?php 
+		$email = "mennah.rabie@gmail";
+        $ADC = new AdminClass;
+	    $result2 = array();
+        $result2 = $ADC->loadName($email);
+        
+        if (!$result2)
+		 {
+			$message  = 'Invalid query: ' . mysqli_error() . "\n";
+			$message .= 'Whole query: ' . $query;
+			die($message);
+	     }
+		 
+		else
+		{
+			$row = mysqli_fetch_assoc($result2);
+			echo $row['name'];
+		}
+
+		?>
+		</h3>
+	   
 	  </div>
 	</div>
   </div>
@@ -31,53 +53,47 @@
         <input type="submit" value="" id="submit">
       </form>
 	  
-	  <? php
-	  $AD = new AdminClass;
+	  <h1><a href="#">Your Posts</a></h1>
+	  </div>
 	  
-	  $db = Database::getInstance();
-      $mysqli = $db->getConnection(); 
-      $sql_query = 
-      $result = $mysqli->query($sql_query);
+	 
+	  <div class="center">
+	  <p id="rcorners1">
+	   <?php $email = "mennah.rabie@gmail";
+      $AD = new AdminClass;
+	  $result = array();
+	  $result = $AD->selectPostsbyAdmin($email);
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  ?>
-	  
-	  
-      <h1><a href="#">Your Posts</a></h1>
-	   <p class="posts">Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
-       #<a href="Home.html" >Update Post</a>  #<a href="Home.html" >Delete Post</a>  #<a href="Home.html" >View Post</a>
-	   <br><hr><br>
-	   <p class="posts"> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
-       #<a href="Home.html">Update Post</a> #<a href="Home.html">Delete Post</a> #<a href="Home.html">View Post</a>
-	   <br><hr><br>
-       <p class="posts">thank you </p>
-       #<a href="Home.html">Update Post</a> #<a href="Home.html">Delete Post</a></li> #<a href="Home.html">View Post</a></li>
-	   <br><hr><br>
-</div>   
+		if (!$result)
+		 {
+			$message  = 'Invalid query: ' . mysqli_error() . "\n";
+			$message .= 'Whole query: ' . $query;
+			die($message);
+	     }
+		 else if(mysqli_num_rows($result) == 0)
+	    {
+			echo "No rows found, nothing to print so am exiting";
+			exit;
+        }
+		else
+		{   
+			while ($row = mysqli_fetch_assoc($result))
+			{ 
 
-<div class="RightSide">
-        <h1>Notifications</h1>
-        <p id="rcorners1">stp deleted post</p>
-		<p id="rcorners1">new notification from ieee</p>
-		<p id="rcorners1">mshwar added a new post</p>
-		<p id="rcorners1">stp changed time of event</p>
-		<p id="rcorners1">xxxxxx</p>
-		<p id="rcorners1">stp deleted post</p>
-		<p id="rcorners1">gate commented on your post</p>
-		<p id="rcorners1">new notification from ieee</p>
-		<p id="rcorners1">mshwar added a new post</p>
-		<p id="rcorners1">gate commented on your post</p>
-		<p id="rcorners1">xxxxxx</p>
-		<p id="rcorners1">gate commented on your post</p>
-		<p id="rcorners1">stp changed time of event</p>
-</div>
+			   echo $row['posts'];
+			   echo "<br>";
+			   echo '<a href="Home.html" >Update Post</a>  <a href="Home.html" >Delete Post</a>  <a href="Home.html" >View Post</a>';
+               echo "<br> <br> <br> <br>";
+			   
+			}
+	   }	  
+
+	?>  
+	</p>
+	</div>
       
-</html>
+
+
+
 </body>
 </html>
-
