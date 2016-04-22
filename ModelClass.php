@@ -1,13 +1,13 @@
 <?php
-    class ModelClass {
+    class Connection {
 	private $_connection;
 	private static $_instance; //The single instance
 	private $_host = "localhost";
-	private $_username = "USERNAME";
-	private $_password = "PASSWORd";
-	private $_database = "DATABASE";
+	private $_username = "root";
+	private $_password = "";
+	private $_database = "lead";
 	/*
-	Get rania an instance of the Database
+	Get an instance of the Database
 	@return Instance
 	*/
 	public static function getInstance() {
@@ -34,5 +34,6 @@
 	}
 	
 	//functions of notifications will be added here
+	
 }
 ?>
