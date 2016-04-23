@@ -17,16 +17,25 @@ body {
  
 }
 
+
+
+
 .Name
 {
 
   position: absolute;
 
 }
+.Logo
+{
+
+  position: relative;
+  margin-left: 30px;
+}
 h1 {
     position: absolute;
-    margin-left: 400px;
-    margin-top: 100px;
+    margin-left: 500px;
+    margin-top: 160px;
     line-height: 40px;
     font-size: 50px;
     font-weight: bold;
@@ -38,8 +47,8 @@ h1 {
 
   h2 {
     position: relative;
-    margin-left: 900px;
-    margin-top: 100px;
+    margin-left: 1000px;
+    margin-top: 160px;
     font-size: 50px;
     font-weight: bold;
     color: #FFFFFF;
@@ -47,7 +56,215 @@ h1 {
     text-shadow: 0 1px white;
   }
 
+  .page{
+  background:url(../images/container-bg.jpg) repeat-y;
+  min-height: 100%;
+    margin:0 auto;
+  width:940px;
+  
+    /* Set up proportionate scaling */
+   /* width: 100%;*/
+    height: auto;
+  
+    /* Set up positioning */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+p a{
+  text-decoration:underline;
+  color:#868593;
+}
+
+  .body{
+  position:absolute;
+  left:200px;
+  top:50px;
+  float:left;
+  padding:0 0 0 109px;
+ *padding:0 0 60px 109px;
+  width:609px;
+  _width:609px;
+}
+
+
+.body ul.navigation{
+  height:58px;
+  list-style:none;
+  margin:20px 0 0;
+  padding:0;
+}
+.body ul.navigation li{
+  float:left;
+  border-width:1px;
+  border-style:solid none;
+  border-color:#373646;
+  float:left;
+  height:58px;
+  text-align:center;
+  margin:0;
+}
+.body ul.navigation li.selected{
+  float:left;
+  height:58px;
+  text-align:center;;
+  background-color:#20202c;
+}
+.body ul.navigation li a{
+  border-width:1px;
+  border-style:solid none;
+  border-color:#1d1e20;
+  color:#FFFFFF;
+  display:block;
+  font-family:arial;
+  font-size:14px;
+  line-height:20px;
+  padding:10px 22px 6px 21px;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+.body ul.navigation li a:hover{
+  color:#00e3ff;
+}
+
+.sidebar{
+   min-height: 100%;
+    margin:0 auto;
+  width:960px;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+background:#FFFFFF;
+    _margin:0 3px 0 0;
+  margin-left: 0px;
+  margin-bottom: 0px;
+}
+
+.sidebar .featured h3{
+  color:#9A1915;
+  position: relative;
+  font-family:cursive;
+  font-size:14px;
+  margin:55px 0 0 25px;
+  margin-top: 0px;
+  margin-left: 10px;
+  text-transform:inherit;
+}
+
+.sidebar .featured h4{
+  color:#9A1915;
+  position: relative;
+  font-family:cursive;
+  font-size:20px;
+  margin:55px 0 0 25px;
+  margin-top: 0px;
+  margin-left: 40px;
+  text-transform:inherit;
+}
+.sidebar div#tweets{
+  clear:both;
+  margin:30px 0 0;
+}
+
+
+
+#oval_parent{
+    background:black;
+    width:200px;
+    height:120px;
+    margin-left: 200px;
+    margin-top: 200px;
+    position: absolute;
+    text-align: center;
+    word-wrap: break-word;
+    text-align: left;
+   
+}
+
+
+
+#oval{
+     width: 450px;
+    height: 200px;
+    margin:10px 0 0 -10px;  
+    background: white;
+    color: black;
+    margin-left: 350px;
+    margin-top: 250px;
+    margin-bottom: 10px;
+    position: relative;
+    word-spacing: inherit;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+    bottom: 0px;
+    word-wrap: break-word;
+    text-indent: inherit;
+    color:#9A1915;
+    font-family:cursive;
+     -moz-border-radius: 100px / 50px;
+    -webkit-border-radius: 100px / 50px;
+    border-radius: 80px / 50px;
+}
+
+#left-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0; /* Not sure why this is here */
+  z-index: 3;
+  max-width: 24em;
+  max-height: none;  
+  overflow: hidden;
+  height:100%; /* Needs to be given a height and width as far as I know */
+  width:1000px; /* They can be whatever dimensions you'd like, 'course */
+  background-color: rgba(26,26,26,1);
+
+}
+#left-bar {
+  max-width: 100%;
+  max-height: 100%; /* Prevents it from auto sizing to its content */
+  position:absolute;
+  right: -20px; /* Shifts element to the right */
+  padding-right: 39px; /* Uses padding to move element back into position */
+  overflow-y: scroll; /* Makes sure that there is a scrollbar */
+  width: 87%;
+
+}
+#left-bar.sidebars .block {
+  padding: 5%;
+  border-right: none;
+ 
+  background-color: rgba(255,255,238,0.4);
+  margin-bottom: 1.5em;
+  font-size: 0.9em;
+  overflow: hidden;
+
+}
+.sidebars .block ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sidebars h2 {
+  padding: 0;
+  margin: 5% 10% 0;
+  font-size: 1.75em;
+  text-transform: lowercase;
+  font-weight: 400;
+  text-align: right;
+  /*border-bottom: 1px dashed #9c561b;  
+  color: #9c561b;
+  text-shadow:#130b08 0 1px 0;*/
+}
+#left-wrap a {
+  color: #FDC;
+}
+
+
 <style>
+
 
 div.Searchstyle {
 margin-left: 800px;
@@ -56,15 +273,16 @@ margin-top: 500px;
 #Searchstyle 
 { 
 position: absolute;
-margin-top:200px; 
+margin-top:260px; 
 margin-left:310px; 
-color: #EC5645;
 margin-bottom: 20px;
 background: #FFFFFF;
 width: 350px;
 border-radius: 15px;
 word-wrap: break-word;
 font-size: 17px;
+color:#9A1915;
+font-family:cursive;
 } 
 
 </style>
