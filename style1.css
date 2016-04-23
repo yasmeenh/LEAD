@@ -127,15 +127,23 @@ p.posts {
 	position:absolute;
 	
 }
+.mytext {
+    width: 680px;
+	height:60px;
+}
 
-.center #rcorners1 {
+.rcorners1 {
+	float:left;
     border-radius: 25px;
     background: #ffffff;
     padding: 20px;
-    margin-left:330px;	
-    width: 680px;
+	margin-top:20px;
+    margin-left:370px;	
+	/*margin-bottom:20px;*/
+    width: 700px;
     height: auto; 
     word-wrap: break-word;	
+	position:relative;
 }
 
 
