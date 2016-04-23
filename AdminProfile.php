@@ -2,7 +2,9 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style1.css">
-<?php include ("AdminClass.php"); ?>
+<?php include ("Controller.php");
+       session_start();
+ ?>
 
 </head>
 <body>
@@ -16,9 +18,9 @@
 		<h3> 
 		<?php 
 		$email = "mennah.rabie@gmail";
-        $ADC = new AdminClass;
+        $C = new Controller;
 	    $result2 = array();
-        $result2 = $ADC->loadName($email);
+        $result2 = $C->CallLoadName($email);
         
         if (!$result2)
 		 {
@@ -57,12 +59,13 @@
 	  </div>
 	  
 	 
-	  <div class="center">
-	  <p id="rcorners1">
-	   <?php $email = "mennah.rabie@gmail";
-      $AD = new AdminClass;
+	  
+	   <?php 
+	   
+	  
+
 	  $result = array();
-	  $result = $AD->selectPostsbyAdmin($email);
+	  $result = $C->CallSelectPostsbyAdmin($email);
 	  
 		if (!$result)
 		 {
@@ -79,21 +82,16 @@
 		{   
 			while ($row = mysqli_fetch_assoc($result))
 			{ 
-
-			   echo $row['posts'];
-			   echo "<br>";
-			   echo '<a href="Home.html" >Update Post</a>  <a href="Home.html" >Delete Post</a>  <a href="Home.html" >View Post</a>';
-               echo "<br> <br> <br> <br>";
-			   
+               
+                echo "<div class='rcorners1'>"."<br>". 
+				$row["posts"]."<br>".'<a href="UpdatePost.php?content=' . $row['id'] . '">UpdatePost</a>'. 
+				" ". '<a href="UpdatePost.php?content=' . $row['id'] . '" >Delete Post</a>'." ".'<a href="UpdatePost.php?content=' . $row['id'] . '" >View Post</a>'."</div>";
+				
 			}
-	   }	  
+	   }
+	   
 
 	?>  
-	</p>
-	</div>
-      
-
-
-
+	
 </body>
 </html>
