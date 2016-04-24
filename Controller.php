@@ -1,6 +1,12 @@
+
+
+
 <?php 
- require 'C:\wamp\www\AdminClass.php';
+ require 'AdminClass.php';
  require_once("Database.php");
+ require_once("Search_Model.php");
+ require_once 'UserModel.php';
+ require_once("SignUp.php");
 ?>
 
 <?php
@@ -12,18 +18,157 @@ class Controller
   private $UserSearch;
   private $SearchResult=array();
   protected $Search_Model=null;
+  private $pass;
+  private $FName;
+  private $LName;
+  private $Email;
 
   public static  function CreateControllerInstance  (  $sm  ){
 	  if (!self::$instance)
 	  {
-		  self::$instance = new SearchController ($sm); 
+		  self::$instance = new Controller ($sm); 
 	  }
 	  return self::$instance ;
   }	
 
+  
+  ////////////////////////////////maryam//////////////////////////////////
+   
+  
+  
+   function ViewPosts($email) {
+		$u=new UserModel;
+		$r=$u->ViewPosts($email);
+		return $r;
+    } 
+	function Name($email) {
+		$u=new UserModel;
+		$r=$u->loadName($email);
+		$row = $r->fetch_assoc();
+		return $row;
+    }
+	function Likes($email,$t) {
+		$u=new UserModel;
+		$u->AddLikes($email,$t);
+		return;
+    }	
+	function Types() {
+		$u=new UserModel;
+		$r=$u->loadLikes();
+		return $r;
+    }
+	function Favorite($email) {
+		$u=new UserModel;
+		$r=$u->MyLikes($email);
+		return $r;
+    }
+	function Update($F,$L,$E,$email) {
+		$u=new UserModel;
+		$r=$u->UpdateF($email,$F);
+		$r=$u->UpdateL($email,$L);
+		$r=$u->UpdateE($email,$E);
+		return;
+    }
+	function GetPass($email) {
+		$u=new UserModel;
+		$r=$u->OldPass($email);
+		return $r;
+    }
+	function ChangePass($email,$new) {
+		$u=new UserModel;
+		$r=$u->UpdateP($email,$new);
+		return;
+    }
+	function fname($email) {
+		$u=new UserModel;
+		$r=$u->GetF($email);
+		return $r;
+    }
+	function lname($email) {
+		$u=new UserModel;
+		$r=$u->GetL($email);
+		return $r;
+    }
+	function DeleteLike($email,$type) {
+		$u=new UserModel;
+		$r=$u->MyLikes($email);
+		while($row = $r->fetch_assoc())
+		{
+			if($type==$row["tyname"])
+			{
+				$u->RemoveLike($email,$type);
+				return;
+			}
+		}
+		return;
+    }
+	function SE($email) {
+		$u=new UserModel;
+		$r=$u->searchEmail($email);
+		if(mysqli_num_rows($r)>0)
+			return $r=false;
+		else
+			return $r=true;
+		die();
+
+    }
+  
+  
+  
+  ////////////////////////tasneem/////////////////////////////
+  
+function print_posts()
+{
+	require_once ('print_posts_model.php');
+$posts= new print_posts_model;
+$results=array();
+
+$results=$posts->print_posts();	
+return $results;
+}	
+ 
+public function GetUserInfo()
+{
+	$this->pass=isset($_POST['password']) ? $_POST['password'] : '';
+    $this->FName=isset($_POST['firstname']) ? $_POST['firstname'] : '';
+    $this->LName=isset($_POST['lastname']) ? $_POST['lastname'] : '';
+    $this->Email=isset($_POST['email']) ? $_POST['email'] : '';
+}
+
+public function SendUserPass()
+{
+   $Model= SignUp::CreateSignUpModelInstance();
+   $Model->SetUserPass($this->pass);
+}
+public function SendUserFname()
+{
+	$Model= SignUp::CreateSignUpModelInstance();
+   $Model->SetUserFname( $this->FName);
+}
+public function SendUserLname()
+{
+	$Model= SignUp::CreateSignUpModelInstance();
+   $Model->SetUserLname( $this->LName);
+}
+public function SendUserEmail()
+{
+   $Model= SignUp::CreateSignUpModelInstance();
+   $Model->SetUserEmail( $this->Email);
+}
+
+public function CheckUserInfo()
+  {
+  	
+       $Model= SignUp::CreateSignUpModelInstance();
+       $Model->CheckUserInfo();
+    
+  }
+
+
+
 //Constructor which take as a parameter the Search Model object
   public function __construct($sm) {
-    $this->Search_Model = $sm;
+    $this->Search_Model =$sm;
   }	
 
   //Function to get the student Activity that user entered in the search box

@@ -1,20 +1,61 @@
 <?php
-include ("SignUp.html");
+//include ("SignUp.html");
+require_once("Controller.php");
+require_once("Database.php");
 ?>
 
 
 <?php
 
-$connect_db=mysqli_connect('localhost','root','','lead');
-$pass=isset($_POST['password']) ? $_POST['password'] : '';
-$FName=isset($_POST['firstname']) ? $_POST['firstname'] : '';
-$LName=isset($_POST['lastname']) ? $_POST['lastname'] : '';
-$Email=isset($_POST['email']) ? $_POST['email'] : '';
-
-if(isset($_POST['Signup']))
+class SignUp
 {
-	$query= "SELECT email FROM user WHERE email='$Email'";
-	$result = mysqli_query($connect_db,$query);
+
+	 private static  $instance=null;
+	 private $pass;
+     private $FName;
+     private $LName;
+     private $Email;
+
+	 public static  function CreateSignUpModelInstance  (    )
+	 {
+	 	if (!self::$instance)
+	 	{
+	 		self::$instance = new SignUp (); 
+	 	}
+	 	return self::$instance ;
+	 } 
+
+  public function __construct() {
+    
+  }
+
+
+  public function SetUserPass($p)
+  {
+  	$this->pass=$p;
+  }
+   public function SetUserFname($F)
+  {
+    $this->FName=$F;
+  }
+   public function SetUserLname($L)
+  {  	
+    $this->LName=$L;
+  }
+   public function SetUserEmail($E)
+  {
+    $this->Email=$E;
+  }
+
+
+  	public function CheckUserInfo()
+  	{
+  	$connectObject=Database::getInstance();
+    $connect=$connectObject->getConnection();
+  		if(isset($_POST['Signup']))
+  		{
+	$query= "SELECT email FROM user WHERE email='".$this->Email."'";
+	$result = mysqli_query($connect,$query);
 	if(mysqli_num_rows($result)>0)
 	{
 		echo "<script>
@@ -23,25 +64,25 @@ if(isset($_POST['Signup']))
         die();
 	}
 	
-	if($FName=='')
+	if($this->FName=='')
 	{
 		echo "<script>
         alert('Please Enter your First Name');
         </script>";
 	}
-	else if($LName=='')
+	else if($this->LName=='')
 	{
 		echo "<script>
         alert('Please Enter your Last Name');
         </script>";
 	}
-	else if($pass=='')
+	else if($this->pass=='')
 	{
 		echo "<script>
         alert('Please Enter your Password');
         </script>";
 	}
-	else if($Email=='')
+	else if($this->Email=='')
 	{
 		echo "<script>
         alert('Please Enter your Email');
@@ -50,20 +91,29 @@ if(isset($_POST['Signup']))
     else
     {
 
-        $sql="INSERT INTO user(fname, lname, email, password) VALUES('{$FName}','{$LName}','{$Email}','{$pass}')";
 
-        if(mysqli_query($connect_db, $sql))
+  	 $sql="INSERT INTO user(fname, lname, email, password) VALUES('{$this->FName}','{$this->LName}','{$this->Email}','{$this->pass}')";
+
+
+
+        if(mysqli_query($connect, $sql))
         {
+        	$_SESSION['email']=$this->Email;
+			
+
             echo "Records added successfully.";
+			header("location: index1.php");
         } 
        else
        {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($connect_db);
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($connect);
        }
-    }
+   }
+  
 }
-?>
-<?php
-mysqli_close($connect_db);
+  
+}
+}
+
 ?>
 
