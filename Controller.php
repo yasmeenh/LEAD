@@ -34,7 +34,12 @@ class Controller
   
   ////////////////////////////////maryam//////////////////////////////////
    
-  
+  function Photo() {
+		$u=new UserModel;
+		$r=$u->LoadPic();
+		$row = $r->fetch_assoc();
+		return $row;
+    }
   
    function ViewPosts($email) {
 		$u=new UserModel;
