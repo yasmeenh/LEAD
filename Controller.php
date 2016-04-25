@@ -6,7 +6,7 @@
  require_once("Database.php");
  require_once("Search_Model.php");
  require_once 'UserModel.php';
- require_once("SignUp.php");
+ require_once("Client.php");
 ?>
 
 <?php
@@ -116,6 +116,14 @@ class Controller
   
   
   ////////////////////////tasneem/////////////////////////////
+
+
+	function validate_login()
+	{
+	$log_model= new Client();
+	$log_model->validate_login();
+
+	}
   
 function print_posts()
 {
@@ -137,30 +145,25 @@ public function GetUserInfo()
 
 public function SendUserPass()
 {
-   $Model= SignUp::CreateSignUpModelInstance();
-   $Model->SetUserPass($this->pass);
+   $this->Search_Model->SetUserPass($this->pass);
 }
 public function SendUserFname()
 {
-	$Model= SignUp::CreateSignUpModelInstance();
-   $Model->SetUserFname( $this->FName);
+   $this->Search_Model->SetUserFname( $this->FName);
 }
 public function SendUserLname()
 {
-	$Model= SignUp::CreateSignUpModelInstance();
-   $Model->SetUserLname( $this->LName);
+   $this->Search_Model->SetUserLname( $this->LName);
 }
 public function SendUserEmail()
 {
-   $Model= SignUp::CreateSignUpModelInstance();
-   $Model->SetUserEmail( $this->Email);
+   $this->Search_Model->SetUserEmail( $this->Email);
 }
 
 public function CheckUserInfo()
   {
   	
-       $Model= SignUp::CreateSignUpModelInstance();
-       $Model->CheckUserInfo();
+       $this->Search_Model->CheckUserInfo();
     
   }
 
