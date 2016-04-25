@@ -17,8 +17,9 @@
         <div><img src="butterfly.jpg" alt=""></a> </div>
 		<h3> 
 		<?php 
-		$email = "mennah.rabie@gmail";
-        $C = new Controller;
+		$email=$_SESSION['email'];
+		$Model= SearchModel::CreateModelInstance();
+                $C = new Controller($Model);
 	    $result2 = array();
         $result2 = $C->CallLoadName($email);
         
@@ -45,14 +46,15 @@
   
  <div class="body">
       <ul id="navigation">
-        <li><a href="Home.html">Home</a></li>
-		<li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-		<li> <a href="Home2.html">Logout</a></li>
+       <li><a href="index1.php">Home</a></li>
+       <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li> <a href="#">Logout</a></li>
       </ul>
-	  <form action="#" id="search">
-        <input type="text">
-        <input type="submit" value="" id="submit">
+	 <div class="search1">
+      <form action="Search.php" method="post" >
+        <input type="text" name="search" placeholder="Search" class="text1">
+       <input type="submit" name="SR" class="submit1"> 
       </form>
 	  
 	  <h1><a href="#">Your Posts</a></h1>
@@ -83,12 +85,14 @@
 			while ($row = mysqli_fetch_assoc($result))
 			{ 
                
-                echo "<div class='rcorners1'>"."<br>". 
+                 echo "<div class='rcorners1'>"."<br>". 
 				$row["posts"]."<br>".'<a href="UpdatePost.php?content=' . $row['id'] . '">UpdatePost</a>'. 
-				" ". '<a href="UpdatePost.php?content=' . $row['id'] . '" >Delete Post</a>'." ".'<a href="UpdatePost.php?content=' . $row['id'] . '" >View Post</a>'."</div>";
+				" ". '<a href="UpdatePost.php?content=' . $row['id'] . '" >Delete Post</a>'." ."</div>";
 				
 			}
 	   }
+	   
+	   
 	   
 
 	?>  
