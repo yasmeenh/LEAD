@@ -1,6 +1,7 @@
 <?php 
- require 'C:\wamp\www\AdminClass.php';
+ require 'AdminClass.php';
  require_once("Database.php");
+ require_once("Search_Model.php");
 ?>
 
 <?php
@@ -21,9 +22,21 @@ class Controller
 	  return self::$instance ;
   }	
 
+  
+function print_posts()
+{
+	require_once ('print_posts_model.php');
+$posts= new print_posts_model;
+$results=array();
+
+$results=$posts->print_posts();	
+return $results;
+}	
+ 
+
 //Constructor which take as a parameter the Search Model object
   public function __construct($sm) {
-    $this->Search_Model = $sm;
+    $this->Search_Model =$sm;
   }	
 
   //Function to get the student Activity that user entered in the search box
