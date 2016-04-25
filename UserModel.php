@@ -2,6 +2,14 @@
 <?php
 class UserModel
  { 
+ 	 function LoadPic() {
+		 $e="qqq";
+        $sql_query = "select PIC from client where email= '".$e."'";
+		 $db = Database::getInstance();
+		 $mysqli = $db->getConnection();
+		 $result = $mysqli->query($sql_query);
+		 return $result;
+    } 
     function ViewPosts($email) {
          $sql_query = "select posts,name from post,follow,stdact where id = postid and stnemail = email and useremail = '".$email."'";
 		 $db = Database::getInstance();
