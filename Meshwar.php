@@ -57,15 +57,29 @@
 
   <div id="left-wrap">
   <div id="left-bar" class="sidebar">
-      <div class="featured"><div class="Logo"> <img src="Meshwar.png" alt="Smiley face" height="170" width="170"> </div><h4>Who We Are ? </h4><h5>
-        <br>STP stands for Steps Towards Progress. We are a Student Activity that was founded in 2005 at the Faculty of Engineering - Cairo University.
-    The founders of STP saw how students at that time had so much free time that was not well utilized. So, they decided to create STP, in order to form an environment in which these students can learn and pursue their passions.
-    All of STP's activities are planned, organized, and executed by students, all under the supervision of Faculty professors.</h5> <br><br><br></h7></div> </div></div></div></section>
+      <div class="featured"><div class="Logo"> <img src="Meshwar.png" alt="Smiley face" height="170" width="170"> </div><h4>Who We Are ? </h4>
+       <h8> <br>Meshwar is a campaign established at the faculty
+of Engineering Cairo University.
+
+Meshwar is working on 2 branches :
+- Awareness
+- Charity </h8>
+<h3><br><br>
+  Our Vision <br></h3>
+  <h8><br>
+Seeking to see a better society through participating in constructing 
+an effective and straight person and developing society hoping to 
+eliminate negative habits 
+<br><br></h8>
+<h6><br>
+Our Slogan </h6>
+<h8><br>
+حياتك مشوار سيب فيها بصمة</h8>  <br><br><br></h7></div> </div></div></div></section>
 
 
   <section class="container">
   <div class="Name">
-    <h2>Events</h2>
+  
   </div>
 
   <div class="body">

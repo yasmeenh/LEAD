@@ -34,7 +34,7 @@ body {
 }
 h1 {
     position: absolute;
-    margin-left: 500px;
+    margin-left: 720px;
     margin-top: 160px;
     line-height: 40px;
     font-size: 50px;
@@ -47,7 +47,7 @@ h1 {
 
   h2 {
     position: relative;
-    margin-left: 1000px;
+    margin-left: 1070px;
     margin-top: 160px;
     font-size: 50px;
     font-weight: bold;
@@ -97,7 +97,7 @@ p a{
 .body ul.navigation li{
   float:left;
   border-width:1px;
-  border-style:solid none;
+  ;border-style:solid none;
   border-color:#373646;
   float:left;
   height:58px;
@@ -107,7 +107,7 @@ p a{
 .body ul.navigation li.selected{
   float:left;
   height:58px;
-  text-align:center;;
+  text-align:center;
   background-color:#20202c;
 }
 .body ul.navigation li a{
@@ -131,24 +131,28 @@ p a{
    min-height: 100%;
     margin:0 auto;
   width:960px;
-  width: 250px;
-  position: fixed;
+  width: 150px;
+  position: static;
+height: 2000px;
   top: 0;
   bottom: 0;
 background:#FFFFFF;
-    _margin:0 3px 0 0;
-  margin-left: 0px;
+ margin-left: 0;
   margin-bottom: 0px;
-}
+  overflow: hidden;
+  padding-left: 20px;
+  padding-right: 0;
+  }
+
 
 .sidebar .featured h3{
   color:#9A1915;
   position: relative;
   font-family:cursive;
-  font-size:14px;
+  font-size:20px;
   margin:55px 0 0 25px;
   margin-top: 0px;
-  margin-left: 10px;
+  margin-left: 40px;
   text-transform:inherit;
 }
 
@@ -160,6 +164,50 @@ background:#FFFFFF;
   margin:55px 0 0 25px;
   margin-top: 0px;
   margin-left: 40px;
+  text-transform:inherit;
+}
+
+.sidebar .featured h6{
+  color:#9A1915;
+  position: relative;
+  font-family:cursive;
+  font-size:20px;
+  margin:55px 0 0 25px;
+  margin-top: 0px;
+  margin-left: 40px;
+  text-transform:inherit;
+}
+
+.sidebar .featured h5{
+  color:#9A1915;
+  position: relative;
+  font-family:cursive;
+  font-size:14px;
+  margin:55px 0 0 25px;
+  margin-top: 0px;
+  margin-left: 10px;
+  text-transform:inherit;
+}
+
+.sidebar .featured h7{
+  color:#9A1915;
+  position: relative;
+  font-family:cursive;
+  font-size:14px;
+  margin:55px 0 0 25px;
+  margin-top: 0px;
+  margin-left: 10px;
+  text-transform:inherit;
+}
+
+.sidebar .featured h8{
+  color:#9A1915;
+  position: relative;
+  font-family:cursive;
+  font-size:14px;
+  margin:55px 0 0 25px;
+  margin-top: 0px;
+  margin-left: 10px;
   text-transform:inherit;
 }
 .sidebar div#tweets{
@@ -190,7 +238,7 @@ background:#FFFFFF;
     margin:10px 0 0 -10px;  
     background: white;
     color: black;
-    margin-left: 350px;
+    margin-left: 600px;
     margin-top: 250px;
     margin-bottom: 10px;
     position: relative;
@@ -222,6 +270,8 @@ background:#FFFFFF;
   background-color: rgba(26,26,26,1);
 
 }
+
+
 #left-bar {
   max-width: 100%;
   max-height: 100%; /* Prevents it from auto sizing to its content */

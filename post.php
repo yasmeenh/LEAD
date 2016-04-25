@@ -9,9 +9,7 @@ require_once("Database.php");
 class Post{
 	
 	private $connectObject;
-	var $postmsg;
-	var $adminpost;
-	var $postid;
+	
 	
 	function __construct()
 	{

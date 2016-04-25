@@ -16,7 +16,7 @@
 <body bgcolor="#151515">
 
 
-
+<img class="logom" src="logo2.gif" alt="LEAD" height="250" width="250">
 
 
   <section class="container">
@@ -46,17 +46,17 @@
   <div id="left-wrap">
   <div id="left-bar" class="sidebar">
       <div class="featured"><div class="Logo"> <img src="IEEE.png" alt="Smiley face" height="170" width="170"> </div>
-    <div id="left-bar" class="sidebars"><h4><br>Overview <br><br></h4>
+    <div id="left-bar" class="sidebars"><h4><br>Who We Are ? <br><br></h4>
    
     <h8>IEEE Cairo University Student Branch was the first IEEE student branch to be established in Egypt. 
 It is located at the Faculty of Engineering and serves four departments within the faculty, Electronics and Communications Engineering, Electrical Power Engineering, Computer Engineering,and Biomedical Engineering, but its services is not limited to these departments as it provides all students with different soft skills sessions and trainings. </h8>
 
     <h3>
-        <br>Vision<br><br></h3>
+        <br>Our Vision<br><br></h3>
       <h8>
 Enhancing the sense of engineering students through creating leading technical community.</h8>
 <h6><br>
-Mission<br><br>
+Our Mission<br><br>
 </h6>
 <h8>
 Enhancing the sense of engineering students through creating leading technical community and
@@ -66,12 +66,12 @@ students for a better egypt.<br><br><br></h8></div> </div></div></div>
 
   <section class="container">
   <div class="Name">
-    <h2>Events</h2>
+    
   </div>
 
   <div class="body">
    <ul class="navigation">
-        <li class="selected"><a href="index.html">Home</a></li>
+        <li class="selected"><a href="checkhome.php">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       <li>

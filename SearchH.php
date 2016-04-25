@@ -17,28 +17,15 @@
 
 
 
-<div id="background"> </div>
-  <div class="page">
-    <div class="sidebar">
-      <div class="featured">
-        <br>
-      
-    </div>
-  </div>
-  </div>
-
-
-
-
-
   <section class="container">
   <div class="Name">
-    <img src="logo.png" alt="Smiley face" height="170" width="170">
+    
   </div>
 
   <section class="container">
   <div class="Name">
     <h1>Posts</h1>
+    
     <?php
     $results=$Controller->SendUserSearchResult ();
      $length = count($results);
@@ -55,16 +42,16 @@
 
 
 
-  <section class="sidebar"><div class="Logo"> <img src="logo.png" alt="Smiley face" height="170" width="170"> </div><div class="featured"><h4>Who We Are ? </h4><h3>
+  <div id="left-wrap">
+  <div id="left-bar" class="sidebar">
+      <div class="featured"><div class="Logo"> <img src="logo.png" alt="Smiley face" height="170" width="170"> </div><h4>Who We Are ? </h4><h8>
         <br>STP stands for Steps Towards Progress. We are a Student Activity that was founded in 2005 at the Faculty of Engineering - Cairo University.
     The founders of STP saw how students at that time had so much free time that was not well utilized. So, they decided to create STP, in order to form an environment in which these students can learn and pursue their passions.
-    All of STP's activities are planned, organized, and executed by students, all under the supervision of Faculty professors.</h3> </div></section>
+    All of STP's activities are planned, organized, and executed by students, all under the supervision of Faculty professors.</h8> <br><br><br></h7></div> </div></div></div></section>
 
 
   <section class="container">
-  <div class="Name">
-    <h2>Events</h2>
-  </div>
+ 
 
   <div class="body">
    <ul class="navigation">

@@ -11,6 +11,7 @@ class SearchModel{
 
   private static  $instance=null;
   private $arr=array();
+  private $connectObject;
 
 
   public static  function CreateModelInstance  (    ){
@@ -31,8 +32,8 @@ class SearchModel{
 
     if($us!='')
     {
-      $connectObject=Database::getInstance();
-      $connect=$connectObject->getConnection();
+      $this->connectObject=Database::getInstance();
+      $connect=$this->connectObject->getConnection();
       $searchQ= "SELECT posts FROM post,stdact WHERE email=stnemail AND name='$us'"; 
       $results = mysqli_query($connect,$searchQ);
       
