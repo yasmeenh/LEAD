@@ -42,11 +42,12 @@ class Controller
 		return $r;
     } 
 	function Name($email) {
-		$u=new UserModel;
-		$r=$u->loadName($email);
+		$u=new Client;
+		$r=$u->LoadName($email);
 		$row = $r->fetch_assoc();
 		return $row;
     }
+
 	function Likes($email,$t) {
 		$u=new UserModel;
 		$u->AddLikes($email,$t);
@@ -127,13 +128,19 @@ class Controller
   
 function print_posts()
 {
-	require_once ('print_posts_model.php');
-$posts= new print_posts_model;
+	require_once ('Post.php');
+$posts= new Post();
 $results=array();
 
 $results=$posts->print_posts();	
 return $results;
 }	
+
+function write_post()
+	{
+		$write_model= new write_post_model;
+	$write_model->write_post();
+	}
  
 public function GetUserInfo()
 {
