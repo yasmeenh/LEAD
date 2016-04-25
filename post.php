@@ -1,4 +1,111 @@
+<?php<?php
+require_once("Controller.php");
+require_once("Database.php");
+//require_once('user.php');
+?>
+
 <?php
+
+class Post{
+	
+	private $connectObject;
+	var $postmsg;
+	var $adminpost;
+	var $postid;
+	
+	function __construct()
+	{
+		Post::SetConnection();
+	}
+	public function SetConnection()
+  {
+  	$this->connectObject=Database::getInstance();
+  }
+
+
+
+function  write_post()
+{
+	
+	$connect=$this->connectObject->getConnection();
+	
+	$post_written=isset($_POST['writPost']) ? $_POST['writPost'] : '';
+	
+$sql="SELECT * FROM `post`";
+
+$result= mysqli_query($connect, $sql);
+
+
+if(!$result)
+{
+	die("Error with database");
+}
+
+
+else{
+$rowsArray = array();
+if($row = mysqli_fetch_assoc($result))
+{
+$index = 0;
+ $rowsArray[$index] = $row['id'];
+  $index++;
+while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
+     $rowsArray[$index] = $row['id'];
+    //echo "<br />";
+	 //echo $rowsArray[$index];
+	  $index++;
+}
+//echo $index;
+if($index!=0)
+{
+$indexforid=$rowsArray[$index-1]+1;
+}
+else{
+$indexforid=$rowsArray[$index]+1;	
+}
+}
+else{
+	$indexforid=1;
+
+}		
+
+
+
+$sql1="INSERT INTO `post` (`posts`, `id`, `stnemail` , `stnname`) VALUES ('{$post_written}', '{$indexforid}', '{$_SESSION['email']}', '{$_SESSION['name']}');";
+
+$result1= mysqli_query($connect, $sql1);
+
+
+if(!$result1)
+{
+	die("Error with database");
+	 die(mysqli_error());
+}
+else{
+	 header("location:\lead/index.php");
+}
+
+}
+	
+}
+
+function print_posts(){
+		$connect=$this->connectObject->getConnection();
+
+$sql="SELECT * FROM `post` INNER JOIN `stdact` ON stnemail=email";
+
+$result= mysqli_query($connect, $sql);
+
+return $result;
+
+
+		
+	}
+
+}
+
+
+?>
 $connect_db=mysqli_connect('localhost','root','','lead');
 require_once('user.php');
 class post{

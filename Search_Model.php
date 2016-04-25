@@ -1,6 +1,6 @@
 
 <?php
- require_once("Search_Controller.php");
+ require_once("Controller.php");
  require_once("Database.php");
  ?>
 
@@ -21,7 +21,7 @@ class SearchModel{
     return self::$instance ;
   } 
 
-//Constructor which take as a parameter the Search Model object
+
   public function __construct() {
     
   } 
@@ -39,7 +39,7 @@ class SearchModel{
       
       if(mysqli_query($connect, $searchQ))
         {
-          //header('Location: /Search.html');
+          
           if(mysqli_affected_rows($connect)!=0)
           {
           $i=0; 
@@ -61,7 +61,7 @@ class SearchModel{
             echo "ERROR: Could not able to execute $searchQ. " . mysqli_error($connect);
        }
     }
-      //header('Location: /signUp (2).html');
+    
   }
 
   public function SendUserSearchResult (){

@@ -1,23 +1,17 @@
-
 <?php
-include('signin.html');
+include_once('signin.html');
+require_once 'Controller.php';
+require_once("Client.php");
 ?>
 
 
 
 <?php
 
-include 'php/post.php';
 
-$login_validation= new post();
+$m=new Client();
+$login_validation= new Controller($m);
 $login_validation->validate_login();	
 	
 
-
-
-
 ?>
-<?php
-mysqli_close($connect_db);
-?>
-
