@@ -33,7 +33,7 @@ class SearchModel{
     if($us!='')
     {
       $this->connectObject=Database::getInstance();
-      $connect=$connectObject->getConnection();
+      $connect=$this->connectObject->getConnection();
       $searchQ= "SELECT posts FROM post,stdact WHERE email=stnemail AND name='$us'"; 
       $results = mysqli_query($connect,$searchQ);
       
