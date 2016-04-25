@@ -26,6 +26,24 @@ class Client
     $this->connectObject=Database::getInstance();
   }
 
+  function LoadName ($email)
+{
+  $db = Connection::getInstance();
+    $query = "select Fname,Lname from Client where email = '".$email."'";
+    //$resArr = array(); //create the result array
+     
+     
+         $mysqli = $db->getConnection(); 
+         $resArr = $mysqli->query($query);
+     
+     
+         $FName = $resArr['Fname']  ;
+         $LName = $resArr['Lname']  ;
+     
+         return $resArr;     
+}
+
+
 
   public function SetUserPass($p)
   {
@@ -113,7 +131,7 @@ class Client
 
 function validate_login(){
 
-  echo "yes";
+  
 
   $connect=$this->connectObject->getConnection();
     session_start();
