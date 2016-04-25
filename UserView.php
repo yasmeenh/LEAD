@@ -1,22 +1,21 @@
 <?php session_start(); 
-
-require_once "Search_Model.php";
+$e='ew';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>LEAD </title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="userstyle.css" type="text/css" charset="utf-8">
+<link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8">
 <?php include 'controller.php';
-$user=new controller($m=new SearchModel);
+$user=new controller;
 $e='maryam@yahoo.com';
-$e=$_SESSION["email"];
+$_SESSION["email"] = $e;
 ?>
 
 </head>
 <body>
-<div id="background"> <img src="absolute-img.jpg" alt="" class="abs-img">
+<div id="background"> <img src="images/absolute-img.jpg" alt="" class="abs-img">
   <div class="page">
     <div class="sidebar">
       <div class="featured">
@@ -24,7 +23,7 @@ $e=$_SESSION["email"];
 			$result=$user->Name($e);
 			echo "<p style='font-size:25px'>".$result['Fname']." ".$result['Lname']."</p>";
 		?>     
-		<a href="#" class="figure"><img src="butterfly.jpg" alt=""></a>
+		<a href="#" class="figure"><img src="images/butterfly.jpg" alt=""></a>
 	  </div>
       <div id="tweets">
 		        <li><a href="accessories.php">Update Info</a></li>
@@ -76,14 +75,14 @@ $e=$_SESSION["email"];
 					  	/*$user->Likes($e,$row1["TypeName"]);
 						echo $row1["TypeName"]." Pressed"."<br>";*/
 						$user->Likes($e,$row1["TypeName"]);
-						//echo $row1["TypeName"]." Pressed"."<br>";
+						echo $row1["TypeName"]." Pressed"."<br>";
 				  }
 				  else{
 					  	/*$user->DeleteLike($e,$row1["TypeName"]);
 						echo $row1["TypeName"]." nooo"."<br>";*/
 						
 						/*$user->DeleteLike($e,$row1["TypeName"]);*/
-						//echo $row1["TypeName"]." nooooooo"."<br>";
+						echo $row1["TypeName"]." nooooooo"."<br>";
 				  }
 				  
 			 }
@@ -103,9 +102,9 @@ $e=$_SESSION["email"];
     </div>
     <div class="body">
       <ul id="navigation">
-        <li><a href="index1.php">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="tutorials.html">Home</a></li>
+        <li><a href="tutorials.html">About</a></li>
+        <li><a href="tutorials.html">Contact Us</a></li>
       </ul>
       <form action="#" id="search">
         <input type="text">
@@ -136,24 +135,7 @@ $e=$_SESSION["email"];
 		}
 		
 		?>
- <footer class='visitorf'>
-  <div class='foot'>
- <h1> <p  class='hh'>Contact us</p></h1>
-   <a href='#' class='fb'>
-   <img src='facebook.png' width='100' height='100'>
-   </a>
-      <a href='#' class='fb'>
-   <img src='twitter.png' width='100' height='100'>
-   </a>
-      <a href='#' class='fb'>
-   <img src='email.png' width='100' height='100'>
-   </a>
-   <p class='rights'> 2016 , All Rights for LEAD team </p>
-   </div>
-</footer>
-</div>
-      </div>
- ";	
+	
 </div>
     </div>
   </div>

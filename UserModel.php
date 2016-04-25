@@ -1,4 +1,4 @@
-<?php require_once ('Database.php');?>
+<?php require 'C:\wamp\www\Database.php';?>
 <?php
 class UserModel
  { 
