@@ -1,0 +1,616 @@
+body {
+  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  color: #25A0A1;
+  background:url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_wall.png);
+ 
+}
+
+.container {
+  margin: 80px auto;
+  width: 640px;
+}
+
+.logo{
+	
+	position:absolute;
+	left:-200px;
+	
+	top:-50px;
+	
+	
+}
+
+.logom{
+	position:absolute;
+	left:0;
+	
+	top:0;
+	
+	
+}
+
+
+/*/////////////////sidebar///////////////////*/
+
+.sidebar{
+
+
+	float:left;
+	margin:0 9px 0 0;
+	_margin:0 3px 0 0;
+	width:250px;
+	position:absolute;
+	top: 220px;
+	left:0;
+	height:500px;
+}
+.sidebar .featured{
+	width:218px;
+	overflow:hidden;
+}
+.sidebar .featured h3{
+	color:#5B5A62;
+	font-family:arial;
+	font-size:14px;
+	margin:center;
+	text-transform:uppercase;
+}
+.sidebar .featured a.figure{
+	margin:20px 0 5px;
+	display:block;
+	background:none;
+	position:static;
+	text-indent:0;
+	height:auto;
+	width:auto;
+}
+.sidebar .featured a.figure img{
+	border:0;
+}
+.sidebar .featured a{
+	background:url(../image/icons.gif) no-repeat 0 -121px;
+	left:182px;
+	position:absolute;
+	text-indent:-99999px;
+	top:83px;
+	width:24px;
+	height:24px;
+}
+.sidebar .featured span{
+	color:#939598;
+	float:left;
+	font-family:arial;
+	font-size:12px;
+}
+.sidebar .featured a.comments{
+	background:url(../image/icons.gif) no-repeat 1px 1px;
+	color:#FFFFFF;
+	float:right;
+	font-family:arial;
+	font-size:12px;
+	height:18px;
+	padding:0 20px 0 0;
+	position:static;
+	text-align:center;
+	text-decoration:none;
+	text-indent:0;
+	width:19px;
+}
+.sidebar .featured span font{
+	color:#5a5a6b;
+	font-size:13px;
+}
+.sidebar .featured h3.tweets{
+	background:url(../image/icons.gif) no-repeat 1px -38px;
+	color:#FFFFFF;
+	float:right;
+	font-family:arial;
+	font-size:11px;
+	height:18px;
+	margin:0 20px 0 0;
+	position:static;
+	text-align:center;
+	text-decoration:none;
+	text-indent:0;
+	width:20px;
+}
+
+
+
+
+
+/*////////////////body///////////////////////*/
+.body{
+	position:absolute;
+	
+	left:200px;
+	top:50px;
+	float:left;
+	padding:0 0 0 109px;
+ *padding:0 0 60px 109px;
+	width:609px;
+	_width:609px;
+	
+
+}
+
+
+.body ul.navigation{
+	height:58px;
+	list-style:none;
+	margin:50px 0 0;
+	padding:0;
+}
+.body ul.navigation li{
+	float:left;
+	border-width:1px;
+	border-style:solid none;
+	border-color:#373646;
+	float:left;
+	height:58px;
+	text-align:center;
+	margin:0;
+}
+.body ul.navigation li.selected{
+	float:left;
+	height:58px;
+	text-align:center;
+	background-color:#20202c;
+}
+.body ul.navigation li a{
+	border-width:1px;
+	border-style:solid none;
+	border-color:#1d1e20;
+	color:#FFFFFF;
+	display:block;
+	font-family:arial;
+	font-size:14px;
+	line-height:20px;
+	padding:10px 22px 6px 21px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+.body ul.navigation li a:hover{
+	color:#00e3ff;
+}
+.text1{
+	position:relative;
+	top:10px;
+}
+
+ .submit1 {
+	position:relative;
+	top: 10px;
+	background :  url(search.jpg) no-repeat;
+	width:20px;
+	height:20px;
+}
+
+.userf{
+	display:block;
+	position:relative;
+	left:-550px;
+	top:50px;
+	width:1400px;
+	height:250px;
+	background:url(f.jpg) ;
+	
+}
+
+.visitorf{
+	display:block;
+	position:relative;
+	
+	top:50px;
+	left:-300px;
+	width:1400px;
+	height:250px;
+	background:url(f.jpg) ;
+	
+}
+.foot{
+	position:relative;
+	left:500px;
+	top:30px;
+}
+.hh{
+	position:relative;
+	left:70px;
+	font-size:25px;
+	
+}
+.rights{
+	position:relative;
+	top:15px;
+	left:30px;
+	font-size:15px;
+	
+}
+
+/*//////////posts///////////////////////*/
+
+
+
+.posts ul.navigation{
+	height:58px;
+	list-style:none;
+	margin:50px 0 0;
+	padding:0;
+	position:relative;
+	left:300px;
+}
+.posts ul.navigation li{
+	float:left;
+	border-width:1px;
+	border-style:solid none;
+	border-color:#373646;
+	float:left;
+	height:58px;
+	text-align:center;
+	margin:0;
+}
+.posts ul.navigation li.selected{
+	float:left;
+	height:58px;
+	text-align:center;
+	background-color:#20202c;
+}
+.posts ul.navigation li a{
+	border-width:1px;
+	border-style:solid none;
+	border-color:#1d1e20;
+	color:#FFFFFF;
+	display:block;
+	font-family:arial;
+	font-size:14px;
+	line-height:20px;
+	padding:10px 22px 6px 21px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+.posts ul.navigation li a:hover{
+	color:#00e3ff;
+}
+
+
+/*For index.php page */
+
+.posts{
+	position:relative;
+	top:200px;
+	left:250px;
+	width:900px;
+	
+}
+
+
+.post{
+	font-size:30px;
+	font-family: "Times New Roman", Times, serif;
+	color:black;
+	 width: 800px;
+	  /* paragraph to one line */
+     line-height: 1.5;
+	  word-wrap: break-word;
+	
+	
+}
+.admin{
+	position:relative;
+	font-size:50px;
+	font-family:italic;
+	
+	
+	
+}
+.borderdiv{
+	
+	position:relative;
+	top:50px;
+	background:url(post.jpg);
+	
+	border-width:1px;
+	 border-color: #58FAF4;
+	border-style:solid;
+	border-radius: 25px;
+	height:400px;
+	overflow: auto;
+	 
+
+}
+
+.borderdivUser{
+	
+	position:relative;
+	top:50px;
+	left:-250px;
+	background:url(post.jpg);
+	
+	border-width:1px;
+	 border-color: #58FAF4;
+	border-style:solid;
+	border-radius: 25px;
+	height:400px;
+	overflow: auto;
+	 
+
+}
+
+
+/*for write_post.html page*/
+
+.center{
+	position:relative;
+	top:80px;
+	 left:10px;
+	 
+	
+}
+
+.text2{
+	width:900px;
+	height:200px;
+	position:relative;
+	top:60px;
+	left:100px;
+}
+.submit2{
+	position:relative;
+	bottom:10px;
+	left:700px;
+	
+	top:110px;
+	height:40px;
+	width:80px;
+}
+
+
+.bordertowrite{
+	
+	position:relative;
+	top:100px;
+	border-width:1px;
+	 border-color: #58FAF4;
+	border-style:solid;
+	border-radius: 25px;
+
+}
+
+.comment{
+	position:relative;
+	left:800px;
+	top:-60px;
+}
+
+.commentu{
+	position:relative;
+	left:500px;
+	top:-60px;
+}
+
+.options{
+	position:relative;
+	left:1000px;
+	top:-100px;
+	background :  url(../image/arrow.jpg) no-repeat;
+	width:40px;
+	height:40px;
+	
+}
+
+
+.postsw{
+	position:relative;
+	top:200px;
+	width:900px;
+	
+}
+
+
+.postsw ul.navigation{
+	height:58px;
+	list-style:none;
+	margin:50px 0 0;
+	padding:0;
+	position:relative;
+	left:300px;
+}
+.postsw ul.navigation li{
+	float:left;
+	border-width:1px;
+	border-style:solid none;
+	border-color:#373646;
+	float:left;
+	height:58px;
+	text-align:center;
+	margin:0;
+}
+.postsw ul.navigation li.selected{
+	float:left;
+	height:58px;
+	text-align:center;
+	background-color:#20202c;
+}
+.postsw ul.navigation li a{
+	border-width:1px;
+	border-style:solid none;
+	border-color:#1d1e20;
+	color:#FFFFFF;
+	display:block;
+	font-family:arial;
+	font-size:14px;
+	line-height:20px;
+	padding:10px 22px 6px 21px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+.postsw ul.navigation li a:hover{
+	color:#00e3ff;
+}
+
+
+
+/* Dropdown Button */
+.dropbtn {
+   
+	background :  url(images.png) no-repeat;
+	width:40px;
+	height:40px;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+	left:700px;
+	top:-90px;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+
+
+
+
+.drop li {display:block;}
+.drop li:hover {background: #555;}
+.drop li:hover .inside {display: block;}
+.drop li .inside{
+  position:relative;
+	
+  display: none;
+}
+.drop li .inside li { 
+  background: #555; 
+  display: block; 
+}
+.drop li .inside li a {display:block !important;} 
+.drop li .inside li:hover {background: #666;}
+
+
+
+
+
+/*********************************************Mennah.css*******************************************/
+
+
+.page{
+	
+	min-height: 100%;
+  
+	width:700px;
+	
+    /* Set up proportionate scaling */
+   /* width: 100%;*/
+   
+	
+    /* Set up positioning */
+   
+    top: 0;
+    left: 0;
+}
+
+p a{
+	text-decoration:underline;
+	color:#868593;
+} /* Paragraph link color */
+
+
+.img{
+	position:relative;
+	left:30px;
+	top:30px;
+}
+
+
+.RightSide{
+	float:right;
+    padding:0 0 0 930px;
+	width:609px;
+	_width:609px;
+	color : #000000;
+	position:absolute;
+}
+
+
+
+.RightSide h1{
+	font-family:helvetica, arial;
+	color:#c3e8ec;
+	font-size:28px;
+	clear:both;
+	text-transform:uppercase;
+	font-weight:normal;
+	padding:0 0 0 360px;
+	text-shadow:0 -1px 0 #1f202b;
+}
+
+.RightSide #rcorners1 {
+    border-radius: 25px;
+    background: #ffffff;
+    padding: 20px;
+    margin-left:330px;	
+    width: 250px;
+    height: auto; 
+    word-wrap: break-word;	
+}
+
+.rcorners1 {
+	
+    border-radius: 25px;
+    background: #ffffff;
+    padding: 20px;
+	margin-top:20px;
+    margin-left:370px;	
+	/*margin-bottom:20px;*/
+    width: 700px;
+    height: auto; 
+    word-wrap: break-word;	
+	position:relative;
+	left:-200px;
+}
+
+.mytext {
+    width: 680px;
+	height:60px;
+}
+.adminname{
+	position:absolute;
+	
+	left:50px;
+	font-size:25px;
+}
