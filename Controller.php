@@ -120,32 +120,37 @@ class Controller
     }
   
   
-  
   ////////////////////////tasneem/////////////////////////////
-
-
+  
+  
 	function validate_login()
 	{
-	$log_model= new Client();
+		
+		//echo realpath (dirname(__FILE__));
+		$log_model= new logModel;
 	$log_model->validate_login();
-
 	}
+
+
   
 function print_posts()
 {
-	require_once ('Post.php');
-$posts= new Post();
+	require_once ('print_posts_model.php');
+$posts= new print_posts_model;
 $results=array();
 
 $results=$posts->print_posts();	
 return $results;
 }	
 
+
 function write_post()
 	{
 		$write_model= new write_post_model;
 	$write_model->write_post();
 	}
+	
+//////////////////////////////////////////////////////////////////
  
 public function GetUserInfo()
 {
