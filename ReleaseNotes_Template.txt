@@ -1,0 +1,28 @@
+Team 6
+LEAD
+Version:1.0
+
+New Features
+
+1-Update Posts
+ 
+Removed Features 
+
+1-View Post 
+*No Read more link in the post to read the rest of post but we display the whole post so client doesn't need Read more link
+*We made the posts scrollable in the pages of the student activities so it doesn't need Read more link
+
+2-Search Feature needs to be modified in iteration 2
+
+Enhanced Performance
+N/A
+
+Enhanced Look-and-Feel
+N/A
+
+Unsupported Functionality
+N/A
+
+Fixed Bugs
+N/A
+
