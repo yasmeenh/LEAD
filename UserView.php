@@ -1,46 +1,46 @@
-<?php session_start(); 
-$e='ew';
+<?php
+ob_start();
+ require_once'C:\wamp\www\Search_Model.php';
+ require_once'C:\wamp\www\controller.php';
+ require_once'C:\wamp\www\Client.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>LEAD </title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/Userstyle.css" type="text/css" charset="utf-8">
-<?php include 'controller.php';
-$user=new controller;
-$e='maryam@yahoo.com';
-$_SESSION["email"] = $e;
+<link rel="stylesheet" href="index.css" type="text/css" charset="utf-8">
+<?php
+$user=new controller($m=new SearchModel);
 ?>
 
 </head>
 <body>
-<div id="background"> <img src="images/absolute-img.jpg" alt="" class="abs-img">
+<div id="background"> <img src="absolute-img.jpg" alt="" class="abs-img">
   <div class="page">
     <div class="sidebar">
       <div class="featured">
 		<?php 
-			$result=$user->Name($e);
-			echo "<p style='font-size:25px'>".$result['Fname']." ".$result['Lname']."</p>";
+			$result=$user->Name($_SESSION["email"]);
+			echo "<p style='font-size:25px'>".$result['fname']." ".$result['lname']."</p>";
+			$_SESSION["fname"]=$result['fname'];
+			$_SESSION['lname']=$result['lname'];
 		?>     
-		<a href="#" class="figure"><img src="images/butterfly.jpg" alt=""></a>
+		<a href="#" class="figure"><img src="butterfly.jpg" alt=""></a>
 	  </div>
       <div id="tweets">
-		        <li><a href="#">Update Info</a></li>
+		        <li><a href="INFO.php">Update Info</a></li>
       </div>
       <div class="featured">
 	  <h5>Favorite categories:</h5><br>
 		<form action="UserView.php" method="post">
 	
 		<?php
-		 
 		$result1=$user->Types();
-		$result2=$user->Favorite($e);
+		$result2=$user->Favorite($_SESSION["email"]);
 		$row2 = $result2->fetch_assoc();
-		$counter=0;
 		while($row1 = $result1->fetch_assoc())
 		{
-			$counter++;
 			if($row1["TypeName"]==$row2["tyname"])
 			{
 				$c=" checked";
@@ -48,45 +48,29 @@ $_SESSION["email"] = $e;
 			}
 			else
 			{
-				$c="notchecked";
+				$c=" ";
 			}
-
 		 echo '<input type="checkbox" name="categories[]" value='.$row1["TypeName"].$c.'/>'.$row1["TypeName"].'<br>';
 		}?>
 		  <input type="submit" name="Sub" value="Submit"/>
 		  <?php
-		   if(isset($_POST['Sub']))
-		  {
-			  $result1=$user->Types();
-			  $y=0;
-			while($row1 = $result1->fetch_assoc())
+		if(isset($_POST['Sub']))
+		{
+			$user->DeleteLike($_SESSION['email']);
+			if(!empty($_POST['categories']))
 			{
-				  /*if(in_array($row1["TypeName"],$_POST['categories']))
-				 if(in_array($row1["TypeName"],$_POST['categories'])&& isset($_POST['categories']))*/
-				  /*if(in_array($row["TypeName"],$_POST['categories']))
-					  echo "this".$row["TypeName"] ."<br>";*/
-				  /*
-				  foreach($_POST['check_list'] as $report_id){
-        echo "$report_id was checked! ";
-     }
-   */
-				  if(isset($_POST['categories'][$row1["TypeName"]]))
-				  {
-					  	/*$user->Likes($e,$row1["TypeName"]);
-						echo $row1["TypeName"]." Pressed"."<br>";*/
-						$user->Likes($e,$row1["TypeName"]);
-						echo $row1["TypeName"]." Pressed"."<br>";
-				  }
-				  else{
-					  	/*$user->DeleteLike($e,$row1["TypeName"]);
-						echo $row1["TypeName"]." nooo"."<br>";*/
-						
-						/*$user->DeleteLike($e,$row1["TypeName"]);*/
-						echo $row1["TypeName"]." nooooooo"."<br>";
-				  }
-				  
-			 }
-		  }
+				foreach($_POST['categories'] as $selected)
+				{
+				 $user->Likes($_SESSION["email"],$selected);
+				}
+			}
+			header('Location: UserView.php');    
+		}		  
+	 if ($_SESSION['email'] == "")
+	 {
+				header("location:indexVisitor.php");
+	 }
+		 
 		 
 		?>
 		 
@@ -102,9 +86,10 @@ $_SESSION["email"] = $e;
     </div>
     <div class="body">
       <ul id="navigation">
-        <li><a href="tutorials.html">Home</a></li>
+        <li><a href="indexUser.php">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact Us</a></li>
+		<li><a href="LogOut1.php">Log Out</a></li>
       </ul>
       <form action="#" id="search">
         <input type="text">
@@ -112,30 +97,32 @@ $_SESSION["email"] = $e;
       </form>
       <h1><a href="#">LEAD</a></h1>
       <ul class="navigation">
-	    <li class="selected"><a href="tutorials.html">My Profile</a></li>
-        <li><a href="blog.html">Notification</a></li>
+	    <li class="selected"><a href="UserView.php">My Profile</a></li>
+        <li><a href="#">Notification</a></li>
       </ul>
 	    <h2 style="color:white;">Followed Posts</h2>
       <div class="tutorials">
       </div>
 		<!--------------------->
 		<?php
-		$result=$user->ViewPosts($e);
+		$result=$user->ViewPosts($_SESSION['email']);
 		if(mysqli_num_rows($result) == 0)
 		{
 			echo '<p style="text-align:center;color:white;">'.'No posts to view'.'</p>'.'<br>';
-		}		
+		}			
 		else
 		{
 			while($row = $result->fetch_assoc())
 			{
-				echo " <div class='event'>". $row["name"]." :". "<br>";
+				echo " <div class='event'>". $row["fname"]." :". "<br>";
 				echo "<div class='t'>". $row["posts"]. "<br>"."</div>"."</div>";
 			}
 		}
 		
 		?>
-	
+
+</div>
+      </div>
 </div>
     </div>
   </div>
