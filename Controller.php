@@ -52,9 +52,9 @@ class Controller
 		$row = $r->fetch_assoc();
 		return $row;
     }
-
 	function Likes($email,$t) {
 		$u=new UserModel;
+		echo $t.'jjjjj'.'<br>';
 		$u->AddLikes($email,$t);
 		return;
     }	
@@ -95,17 +95,9 @@ class Controller
 		$r=$u->GetL($email);
 		return $r;
     }
-	function DeleteLike($email,$type) {
+	function DeleteLike($email) {
 		$u=new UserModel;
-		$r=$u->MyLikes($email);
-		while($row = $r->fetch_assoc())
-		{
-			if($type==$row["tyname"])
-			{
-				$u->RemoveLike($email,$type);
-				return;
-			}
-		}
+		$u->RemoveLike($email);
 		return;
     }
 	function SE($email) {
@@ -116,7 +108,6 @@ class Controller
 		else
 			return $r=true;
 		die();
-
     }
   
   

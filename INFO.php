@@ -1,34 +1,35 @@
-<?php session_start(); ?>
+<?php 
+ob_start();
+require_once'C:\wamp\www\Client.php'; 
+require_once'C:\wamp\www\controller.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>LEAD </title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/Userstyle.css" type="text/css" charset="utf-8">
-<?php
-include 'controller.php'; 
-$user=new controller;
-$e=$_SESSION["email"];
-$nm="";
-?>
+<link rel="stylesheet" href="index.css" type="text/css" charset="utf-8">
 </head>
 <body>
-<div id="background"> <img src="images/absolute-img.jpg" alt="" class="abs-img">
+<div id="background"> <img src="absolute-img.jpg" alt="" class="abs-img">
   <div class="page">
     <div class="sidebar">
       <div class="featured">
 	  <?php 
-			$result=$user->Name($e);
-			echo "<p style='font-size:25px'>".$result['Fname']." ".$result['Lname']."</p>";
+			$user=new controller($m=new SearchModel);
+			$e=$_SESSION["email"];
+			$nm="";
+			echo "<p style='font-size:25px'>".$_SESSION["fname"]." ".$_SESSION["lname"]."</p>";
 		?>
-        <a href="#" class="figure"><img src="images/butterfly.jpg" alt=""></a> <a href="#">preview</a>  </div>
-
+        <a href="#" class="figure"><img src="butterfly.jpg" alt=""></a> 
+		</div>
     </div>
     <div class="body">
       <ul id="navigation">
-        <li><a href="tutorials.html">Home</a></li>
+        <li><a href="indexUser.html">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact Us</a></li>
+		<li><a href="LogOut1.php">Log Out</a></li>
       </ul>
       <form action="#" id="search">
         <input type="text">
@@ -37,13 +38,12 @@ $nm="";
       <h1><a href="#">LEAD</a></h1>
       <ul class="navigation">
 	    <li class="selected"><a href="UserView.php">My Profile</a></li>
-        <li><a href="blog.html">Notification</a></li>
+        <li><a href="#">Notification</a></li>
       </ul>
 	    <h2 style="color:white;">Edit my information</h2>
 		<br>
       <div class="tutorials">
       </div>
-	  
       <form action="INFO.php" method="post"  class="information">
 	  <?php
 	  if($nm=="")
@@ -117,22 +117,18 @@ $nm="";
 			{
 				$result=$user->Update($_POST['firstname'],$_POST['lastname'],$_POST['email'],$e);
 				$nm=$_POST['firstname'];
-				'<?php    
-					header("Location:www/UserView.php");    
-				?>';
 				$_SESSION["email"] = $_POST['email'];
-
+					header("Location:UserView.php");    
+					exit();
 			}
 		 }
 		 else
 			{
 				$result=$user->Update($_POST['firstname'],$_POST['lastname'],$_POST['email'],$e);
 				$nm=$_POST['firstname'];
-				'<?php    
-					header("Location:www/UserView.php");    
-				?>';
+					header("location: UserView.php");
+					exit();			
 			}
-
 	 }
 	 }
 	 if(isset($_POST['commit2']))
@@ -156,9 +152,7 @@ $nm="";
 		 if($_POST['Oldpassword']==$row["password"])
 		 {
 		  $result=$user->ChangePass($e,$_POST['Newpassword']);
-		  "<?php    
-					header('Location: http://localhost/UserView.php');    
-		  ?>";
+					header('Location: UserView.php');    
 		 }
 		 else{
 			 echo "<script>
