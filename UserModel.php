@@ -1,30 +1,16 @@
-<?php require 'C:\wamp\www\Database.php';?>
+<?php require_once 'C:\wamp\www\Database.php';
+	  require_once 'C:\wamp\www\Client.php';?>
 <?php
-class UserModel
+class UserModel extends Client
  { 
- 	 function LoadPic() {
-		 $e="qqq";
-        $sql_query = "select PIC from client where email= '".$e."'";
-		 $db = Database::getInstance();
-		 $mysqli = $db->getConnection();
-		 $result = $mysqli->query($sql_query);
-		 return $result;
-    } 
     function ViewPosts($email) {
-         $sql_query = "select posts,name from post,follow,stdact where id = postid and stnemail = email and useremail = '".$email."'";
+         $sql_query = "select posts,fname from post,follow,client where id = PostId and client.email=post.Email and userEMAIL = '".$email."'";
 		 $db = Database::getInstance();
 		 $mysqli = $db->getConnection();
 		 $result = $mysqli->query($sql_query);
 		 return $result;
     } 
-	function loadName ($email)
-	{
-		$sql_query = "select Fname,Lname from user where Email = '".$email."'";
-		$db = Database::getInstance();
-		$mysqli = $db->getConnection();
-		$result = $mysqli->query($sql_query);
-		return $result;
-	}
+	
 	function loadLikes ()
 	{
 		$sql_query = "select TypeName from type";
@@ -43,7 +29,7 @@ class UserModel
 	}
 	function OldPass ($email)
 	{
-		$sql_query="select password from user where email='".$email."'";
+		$sql_query="select password from client where email='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
@@ -51,7 +37,7 @@ class UserModel
 	}
 	function GetF ($email)
 	{
-		$sql_query="select fname from user where email='".$email."'";
+		$sql_query="select fname from client where email='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
@@ -59,7 +45,7 @@ class UserModel
 	}
 	function GetL ($email)
 	{
-		$sql_query="select lname from user where email='".$email."'";
+		$sql_query="select lname from client where email='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
@@ -71,11 +57,13 @@ class UserModel
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
+						echo $type.'xxxxxxx'.'<br>';
+
 		return;
 	}
 	function UpdateF ($email,$name)
 	{
-		$sql_query="Update user SET fname='".$name."'where email='".$email."'";
+		$sql_query="Update client SET fname='".$name."'where email='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
@@ -83,7 +71,7 @@ class UserModel
 	}
 	function UpdateL ($email,$name)
 	{
-		$sql_query="Update user SET lname='".$name."'where email='".$email."'";
+		$sql_query="Update client SET lname='".$name."'where email='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
@@ -91,7 +79,7 @@ class UserModel
 	}
 	function UpdateE ($email,$new)
 	{
-		$sql_query="Update user SET email='".$new."'where email='".$email."'";
+		$sql_query="Update client SET email='".$new."'where email='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
@@ -99,15 +87,15 @@ class UserModel
 	}
 	function UpdateP ($email,$new)
 	{
-		$sql_query="Update user SET password='".$new."'where email='".$email."'";
+		$sql_query="Update client SET password='".$new."'where email='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
 		return;
 	}
-	function RemoveLike ($email,$type)
+	function RemoveLike ($email)
 	{
-		$sql_query="Delete from likes where useremail ='".$email."'and tyname='".$type."'";
+		$sql_query="Delete from likes where useremail ='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
@@ -115,11 +103,13 @@ class UserModel
 	}
 	function searchEmail ($email)
 	{
-		$sql_query="SELECT email FROM user WHERE email='".$email."'";
+		$sql_query="SELECT email FROM client WHERE email='".$email."'";
 		$db = Database::getInstance();
 		$mysqli = $db->getConnection();
 		$result = $mysqli->query($sql_query);
 		return $result;
 	} 
  }
+ 
+ 
 ?>
